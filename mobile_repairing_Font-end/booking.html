@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Repair - FixIt Mobile Repairs</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .booking-container {
+            max-width: 900px;
+            margin: var(--space-lg) auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--space-lg);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .booking-form-side {
+            padding: var(--space-md);
+        }
+
+        .booking-info-side {
+            background: var(--primary);
+            color: var(--white);
+            padding: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .form-control {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--surface);
+            font-family: inherit;
+        }
+
+        .form-control textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="booking.html" class="btn btn-primary active">Book Repair</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-form-side">
+                    <h2>Schedule Your Repair</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-light);">Fill out the form below and we'll confirm
+                        your slot within minutes.</p>
+
+                    <form id="repair-booking-form">
+                        <div class="form-grid">
+                            <div class="form-control">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-control">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" required placeholder="+1 234 567 890">
+                            </div>
+                            <div class="form-control">
+                                <label for="device">Device Model *</label>
+                                <input type="text" id="device" required placeholder="iPhone 14 Pro">
+                            </div>
+                            <div class="form-control">
+                                <label for="issue">Primary Issue *</label>
+                                <select id="issue" required>
+                                    <option value="">Select an issue</option>
+                                    <option value="screen">Screen Replacement</option>
+                                    <option value="battery">Battery Issues</option>
+                                    <option value="water">Water Damage</option>
+                                    <option value="charging">Charging Port</option>
+                                    <option value="software">Software / Lag</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-control">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-control">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" required>
+                                    <option value="morning">Morning (9AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening">Evening (4PM - 8PM)</option>
+                                </select>
+                            </div>
+                            <div class="form-control full-width">
+                                <label for="message">Additional Notes</label>
+                                <textarea id="message" placeholder="Tell us more about the problem..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Confirm
+                            Booking</button>
+                    </form>
+                </div>
+
+                <div class="booking-info-side">
+                    <h3>Why book with us?</h3>
+                    <div style="margin: 2rem 0;">
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Priority support & faster turnaround.</p>
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Free diagnostic check worth $20.</p>
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Instant WhatsApp confirmation.</p>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: var(--radius-md);">
+                        <h4>Need a quick quote?</h4>
+                        <p style="margin: 0.5rem 0 1rem; font-size: 0.9rem;">Chat with us directly on WhatsApp.</p>
+                        <a href="#" class="btn btn-primary" style="background: #25d366; width: 100%; border: none;"><i
+                                class="fab fa-whatsapp"></i> Chat Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h2>Booking Confirmed!</h2>
+        <p>Thank you for choosing FixIt. We've received your request.</p>
+        <p style="margin-bottom: 2rem;">A technician will call you shortly to confirm the appointment.</p>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('repair-booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate form submission
+            document.getElementById('success-overlay').style.display = 'flex';
+        });
+
+        // Set min date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - FixIt Mobile Repairs</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .filter-container {
+            margin: var(--space-lg) 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.8rem;
+            border-radius: var(--radius-full);
+            background: var(--white);
+            color: var(--text);
+            font-weight: 600;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .services-detailed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+            min-height: 400px;
+        }
+
+        .service-detail-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .service-image {
+            height: 220px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-detail-card:hover .service-image {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .service-info {
+            padding: var(--space-md);
+            flex-grow: 1;
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .service-footer {
+            padding: var(--space-sm) var(--space-md);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+        }
+
+        .guarantee-box {
+            background: var(--secondary);
+            color: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .guarantee-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="booking.html" class="btn btn-primary">Book Repair</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 style="font-size: 3.5rem;">Expert Repair Solutions</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9;">Professional diagnostics and precision repairs for all your
+                    mobile devices.</p>
+            </div>
+        </div>
+
+        <section style="background: var(--surface);">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All Services</button>
+                    <button class="filter-btn" data-filter="hardware">Hardware Repairs</button>
+                    <button class="filter-btn" data-filter="software">Software & Data</button>
+                    <button class="filter-btn" data-filter="others">Specialty Services</button>
+                </div>
+
+                <div class="services-detailed-grid" id="detailed-services-grid">
+                    <!-- Cards will be populated by JS -->
+                </div>
+
+                <!-- Common Symptoms Checklist -->
+                <div style="margin-top: var(--space-xl);">
+                    <h2 class="text-center" style="margin-bottom: var(--space-md);">Not sure what's wrong?</h2>
+                    <p class="text-center"
+                        style="max-width: 700px; margin: 0 auto var(--space-lg); color: var(--text-light);">If your
+                        phone is behaving strangely, match your symptoms below to find out which service you might need.
+                    </p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <div class="glass-card"
+                            style="padding: var(--space-md); border: 1px solid rgba(37, 99, 235, 0.1);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;"><i
+                                    class="fas fa-bolt-lightning"></i> Power Issues</h4>
+                            <ul style="font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+                                <li>• Phone won't turn on</li>
+                                <li>• Rapid battery drain</li>
+                                <li>• Shutting down unexpectedly</li>
+                                <li>• Only works when plugged in</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card"
+                            style="padding: var(--space-md); border: 1px solid rgba(37, 99, 235, 0.1);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-display"></i>
+                                Display Issues</h4>
+                            <ul style="font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+                                <li>• Vertical lines on screen</li>
+                                <li>• Ghost touching</li>
+                                <li>• Black spots or ink leaks</li>
+                                <li>• Flickering brightness</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card"
+                            style="padding: var(--space-md); border: 1px solid rgba(37, 99, 235, 0.1);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-shield-virus"></i>
+                                Performance Issues</h4>
+                            <ul style="font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+                                <li>• Stuck on Apple/Brand logo</li>
+                                <li>• App crashes & freezing</li>
+                                <li>• Overheating during use</li>
+                                <li>• Storage full / Slow OS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Guarantee -->
+                <div class="guarantee-box">
+                    <div>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">The FixIt Quality Guarantee</h2>
+                        <ul style="display: grid; gap: 1rem;">
+                            <li style="display: flex; gap: 10px; align-items: start;"><i
+                                    class="fas fa-check-circle text-accent"></i><span><strong>Premium Grade
+                                        Parts:</strong> AAA+ rated components for every repair.</span></li>
+                            <li style="display: flex; gap: 10px; align-items: start;"><i
+                                    class="fas fa-check-circle text-accent"></i><span><strong>No Fix, No Fee:</strong>
+                                    No charge if we can't fix it.</span></li>
+                            <li style="display: flex; gap: 10px; align-items: start;"><i
+                                    class="fas fa-check-circle text-accent"></i><span><strong>6-Month Warranty:</strong>
+                                    Peace of mind guaranteed.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--secondary); color: white; padding: 4rem 0 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+                <div>
+                    <div class="logo" style="color: white; margin-bottom: 1rem;"><i class="fas fa-mobile-alt"></i>
+                        <span>Fix</span>It</div>
+                    <p style="color: #94a3b8;">Your trusted partner for professional mobile repair services.</p>
+                </div>
+                <div>
+                    <h4>Links</h4>
+                    <ul style="list-style: none; padding: 0; display: grid; gap: 0.5rem; margin-top: 1rem;">
+                        <li><a href="index.html" style="color: #94a3b8; text-decoration: none;">Home</a></li>
+                        <li><a href="services.html" style="color: white; text-decoration: none;">Services</a></li>
+                        <li><a href="pricing.html" style="color: #94a3b8; text-decoration: none;">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const detailedServices = [
+            { id: 1, title: "Screen Replacement", category: "hardware", description: "OLED, LCD, and Gorilla Glass repairs with 180-day guarantee.", time: "30-60 mins", price: "From $49", icon: "fa-mobile-screen-button" },
+            { id: 2, title: "Battery Replacement", category: "hardware", description: "Restore your phone's power with our high-capacity, long-life battery cells.", time: "20-40 mins", price: "From $29", icon: "fa-battery-three-quarters" },
+            { id: 3, title: "Water Damage Recovery", category: "hardware", description: "Advanced ultrasonic deep cleaning to recover devices after liquid exposure.", time: "24-48 hours", price: "From $59", icon: "fa-droplet" },
+            { id: 4, title: "Charging Port Repair", category: "hardware", description: "Fix loose USB-C or Lightning ports and restore fast charging functionality.", time: "30 mins", price: "From $35", icon: "fa-plug" },
+            { id: 5, title: "Software Optimization", category: "software", description: "System updates, virus removal, and fixing performance lag or crashing.", time: "1-2 hours", price: "From $40", icon: "fa-code" },
+            { id: 6, title: "Data Recovery", category: "software", description: "Data retrieval for lost photos, contacts, and files from dead devices.", time: "1-3 days", price: "From $99", icon: "fa-database" },
+            { id: 7, title: "Motherboard Repair", category: "others", description: "Complex microsoldering for IC chips and motherboard failure.", time: "2-5 days", price: "Get Quote", icon: "fa-microchip" },
+            { id: 8, title: "Camera Module Fix", category: "hardware", description: "Fix blurry focus, lens cracks, or complete camera failure.", time: "45 mins", price: "From $45", icon: "fa-camera" },
+            { id: 9, title: "Back Glass Replacement", category: "hardware", description: "Laser-cut rear glass replacement for a factory look.", time: "2-4 hours", price: "From $79", icon: "fa-square" },
+            { id: 10, title: "Speaker & Mic Repair", category: "hardware", description: "Fix muffled audio or non-functional microphones.", time: "45 mins", price: "From $30", icon: "fa-volume-high" },
+            { id: 11, title: "Button Replacement", category: "hardware", description: "Fix stuck power, volume, and home buttons.", time: "30-45 mins", price: "From $25", icon: "fa-keyboard" },
+            { id: 12, title: "Network & WiFi Fix", category: "others", description: "WiFi/Bluetooth grayed out issues and signal boosting.", time: "1-2 days", price: "From $55", icon: "fa-wifi" }
+        ];
+
+        function populateDetailedServices(category = 'all') {
+            const grid = document.getElementById('detailed-services-grid');
+            if (!grid) return;
+
+            const filtered = category === 'all' ? detailedServices : detailedServices.filter(s => s.category === category);
+
+            grid.innerHTML = filtered.map(s => `
+                <div class="service-detail-card card-hover animate-on-scroll">
+                    <div class="service-image">
+                        <i class="fas ${s.icon}"></i>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-tag">${s.category}</span>
+                        <h3 style="margin-bottom: 0.5rem;">${s.title}</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">${s.description}</p>
+                        <div style="margin-top: 1rem; color: var(--text-light); font-size: 0.85rem; font-weight: 600;">
+                            <i class="fas fa-clock text-primary"></i> ${s.time}
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="font-bold text-primary">${s.price}</span>
+                        <a href="booking.html?service=${s.id}" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Book Now</a>
+                    </div>
+                </div>
+            `).join('');
+
+            if (window.initScrollAnimations) window.initScrollAnimations();
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                populateDetailedServices(btn.dataset.filter);
+            });
+        });
+
+        // Use a small timeout to ensure DOM is fully ready and main.js is initialized
+        setTimeout(() => populateDetailedServices(), 50);
+    </script>
+</body>
+
+</html>

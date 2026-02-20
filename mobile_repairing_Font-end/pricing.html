@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Pricing - FixIt Mobile Repairs</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .estimator-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            margin: -60px auto var(--space-lg);
+            position: relative;
+            z-index: 10;
+        }
+
+        .estimator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--surface);
+            font-family: inherit;
+            outline: none;
+        }
+
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .result-box {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            text-align: center;
+            border: 2px dashed var(--primary);
+            display: none;
+        }
+
+        .result-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            margin: 1rem 0;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-md);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-table th {
+            background: var(--surface);
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .pricing-table tr:hover {
+            background: rgba(37, 99, 235, 0.02);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="booking.html" class="btn btn-primary">Book Repair</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Repair Cost Estimator</h1>
+                <p>Get an instant indicative price for your device repair.</p>
+            </div>
+        </div>
+
+        <section class="container">
+            <div class="estimator-card">
+                <div class="estimator-form">
+                    <div class="form-group">
+                        <label>Select Brand</label>
+                        <select id="brand-select">
+                            <option value="">Select Brand</option>
+                            <option value="apple">Apple iPhone</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="google">Google Pixel</option>
+                            <option value="oneplus">OnePlus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Model</label>
+                        <select id="model-select" disabled>
+                            <option value="">Choose Brand First</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Issue</label>
+                        <select id="issue-select" disabled>
+                            <option value="">Select Issue</option>
+                            <option value="screen">Screen Replacement</option>
+                            <option value="battery">Battery Replacement</option>
+                            <option value="water">Water Damage</option>
+                            <option value="charging">Charging Port</option>
+                            <option value="camera">Camera Repair</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="result-box" class="result-box">
+                    <h4>Estimated Cost Range</h4>
+                    <div class="result-price" id="estimated-price">$0 - $0</div>
+                    <p id="time-est" style="color: var(--text-light); margin-bottom: 1.5rem;">Estimated time: --</p>
+                    <a href="booking.html" class="btn btn-primary">Book This Repair</a>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--space-lg);">
+                <h2 class="text-center">Popular Repairs Price List</h2>
+                <div style="overflow-x: auto;">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Device Model</th>
+                                <th>Screen Repair</th>
+                                <th>Battery Fix</th>
+                                <th>Charging Port</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>iPhone 14 Pro</td>
+                                <td>$199</td>
+                                <td>$89</td>
+                                <td>$75</td>
+                            </tr>
+                            <tr>
+                                <td>iPhone 13</td>
+                                <td>$149</td>
+                                <td>$69</td>
+                                <td>$65</td>
+                            </tr>
+                            <tr>
+                                <td>Samsung S23</td>
+                                <td>$179</td>
+                                <td>$79</td>
+                                <td>$70</td>
+                            </tr>
+                            <tr>
+                                <td>Pixel 7</td>
+                                <td>$129</td>
+                                <td>$59</td>
+                                <td>$60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;"><i class="fas fa-mobile-alt"></i>
+                        <span>Fix</span>It</div>
+                    <p style="color: #94a3b8;">Quality repairs at competitive prices.</p>
+                </div>
+                <!-- ... other cols ... -->
+            </div>
+            <div class="footer-bottom">&copy; 2026 FixIt Mobile Repairs.</div>
+        </div>
+    </footer>
+
+    <div id="mobile-nav" class="mobile-nav"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const models = {
+            apple: ["iPhone 14 Pro Max", "iPhone 14 Pro", "iPhone 14", "iPhone 13 Pro", "iPhone 13", "iPhone 12"],
+            samsung: ["Galaxy S23 Ultra", "Galaxy S23", "Galaxy S22", "Galaxy A54", "Galaxy Fold 4"],
+            google: ["Pixel 7 Pro", "Pixel 7", "Pixel 6a", "Pixel 6 Pro"],
+            oneplus: ["OnePlus 11", "OnePlus 10 Pro", "OnePlus Nord 3"]
+        };
+
+        const prices = {
+            screen: { min: 49, max: 299, time: "30-60 mins" },
+            battery: { min: 29, max: 89, time: "20-40 mins" },
+            water: { min: 59, max: 149, time: "24-48 hours" },
+            charging: { min: 35, max: 75, time: "30-45 mins" },
+            camera: { min: 45, max: 125, time: "45-60 mins" }
+        };
+
+        const brandSelect = document.getElementById('brand-select');
+        const modelSelect = document.getElementById('model-select');
+        const issueSelect = document.getElementById('issue-select');
+        const resultBox = document.getElementById('result-box');
+        const priceDisplay = document.getElementById('estimated-price');
+        const timeDisplay = document.getElementById('time-est');
+
+        brandSelect.addEventListener('change', () => {
+            const brand = brandSelect.value;
+            modelSelect.innerHTML = '<option value="">Select Model</option>';
+
+            if (brand && models[brand]) {
+                modelSelect.disabled = false;
+                models[brand].forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.textContent = m;
+                    modelSelect.appendChild(opt);
+                });
+            } else {
+                modelSelect.disabled = true;
+                issueSelect.disabled = true;
+            }
+            updateResult();
+        });
+
+        modelSelect.addEventListener('change', () => {
+            issueSelect.disabled = !modelSelect.value;
+            updateResult();
+        });
+
+        issueSelect.addEventListener('change', updateResult);
+
+        function updateResult() {
+            if (brandSelect.value && modelSelect.value && issueSelect.value) {
+                const issue = prices[issueSelect.value];
+                let multiplier = 1;
+
+                // Add some model-based logic
+                if (modelSelect.value.includes('Pro') || modelSelect.value.includes('Ultra') || modelSelect.value.includes('Max')) {
+                    multiplier = 1.5;
+                }
+
+                const min = Math.round(issue.min * multiplier);
+                const max = Math.round(issue.max * multiplier);
+
+                priceDisplay.textContent = `$${min} - $${max}`;
+                timeDisplay.innerHTML = `<i class="fas fa-clock"></i> Estimated time: ${issue.time}`;
+                resultBox.style.display = 'block';
+            } else {
+                resultBox.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - FixIt Mobile Repairs</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .faq-header {
+            background: var(--surface);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: var(--space-lg) auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .contact-cta {
+            background: var(--secondary);
+            color: var(--white);
+            padding: var(--space-lg) 0;
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="booking.html" class="btn btn-primary">Book Repair</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="faq-header">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Everything you need to know about our repair services.</p>
+            </div>
+        </div>
+
+        <section class="container">
+            <div class="faq-container" id="faq-list">
+                <!-- FAQ items will be populated by JS -->
+            </div>
+        </section>
+
+        <section class="contact-cta">
+            <div class="container">
+                <h2>Still have questions?</h2>
+                <p style="margin: 1rem 0 2rem;">If you cannot find an answer to your question in our FAQ, you can always
+                    contact us. We will answer to you shortly!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                    <a href="https://wa.me/1234567890" class="btn btn-outline"
+                        style="border-color: white; color: white;">Chat with us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="mobile-nav" class="mobile-nav"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const faqs = [
+            {
+                q: "How long does a typical screen repair take?",
+                a: "Most screen repairs are completed within 30 to 60 minutes. We recommend booking an appointment to ensure immediate service upon arrival."
+            },
+            {
+                q: "Do you offer a warranty on your repairs?",
+                a: "Yes, we provide a 6-month comprehensive warranty on all parts and labor. If the same issue recurs, we'll fix it for free."
+            },
+            {
+                q: "Do I need to back up my data before the repair?",
+                a: "While most repairs don't involve data loss, we always recommend backing up your data before any hardware repair for total safety."
+            },
+            {
+                q: "Are the parts you use genuine?",
+                a: "We use high-quality, certified spare parts that meet or exceed original equipment manufacturer (OEM) standards."
+            },
+            {
+                q: "Do you repair water-damaged phones?",
+                a: "Yes, we have a specialized ultrasonic cleaning and diagnostic process for water damage. The success rate is high if you bring it in quickly."
+            }
+        ];
+
+        const faqList = document.getElementById('faq-list');
+        faqList.innerHTML = faqs.map((faq, index) => `
+            <div class="faq-item ${index === 0 ? 'active' : ''}">
+                <div class="faq-question">
+                    <span>${faq.q}</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>${faq.a}</p>
+                </div>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

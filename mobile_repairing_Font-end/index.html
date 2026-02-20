@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixIt - Premium Mobile Repair Shop | Fast & Reliable</title>
+    <meta name="description"
+        content="Expert mobile repair services for iPhone, Samsung, and all major brands. Screen replacement, battery fixes, and water damage repair in under 30 minutes.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="booking.html" class="btn btn-primary">Book Repair</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <!-- Will be populated by JS or just styled here if static -->
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero"
+            style="background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=1966'); background-size: cover; background-position: center; color: white; min-height: 80vh; display: flex; align-items: center;">
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="hero-content animate-fade-up">
+                    <span class="hero-tagline" style="color: var(--accent); font-weight: 700;">Expert Tech
+                        Restoration</span>
+                    <h1 style="color: white; font-size: 4.5rem;">Your Phone Fixed in <span class="text-accent">30
+                            Minutes</span>.</h1>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.4rem; max-width: 600px;">Professional grade
+                        repairs for all major brands. We combine precision engineering with high-quality parts to bring
+                        your device back to life.</p>
+                    <div class="hero-btns" style="margin-top: 2rem;">
+                        <a href="booking.html" class="btn btn-primary"
+                            style="padding: 1rem 2rem; font-size: 1.1rem;">Book Priority Repair</a>
+                        <a href="services.html" class="btn btn-outline"
+                            style="border-color: white; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Explore
+                            Services</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Dynamic Blur Gradient -->
+            <div
+                style="position: absolute; bottom: -50px; right: -50px; width: 400px; height: 400px; background: var(--primary); border-radius: 50%; filter: blur(120px); opacity: 0.2;">
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section style="padding: 2rem 0; background: var(--surface); border-bottom: 1px solid rgba(0,0,0,0.05);">
+            <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+                <div style="display: flex; align-items: center; gap: 10px; color: var(--text-light); font-weight: 600;">
+                    <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    Certified Technicians
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: var(--text-light); font-weight: 600;">
+                    <i class="fas fa-shield-check" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    6-Month Warranty
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: var(--text-light); font-weight: 600;">
+                    <i class="fas fa-microchip" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    Genuine Parts
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; color: var(--text-light); font-weight: 600;">
+                    <i class="fas fa-rocket" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    30-Min Express
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Snapshot -->
+        <section class="services-snapshot">
+            <div class="container">
+                <h2 class="section-title">Common Repairs</h2>
+                <p class="section-subtitle">We handle everything from cracked screens to complex motherboard issues.</p>
+
+                <div class="services-grid" id="services-grid">
+                    <!-- Service cards will be here -->
+                </div>
+
+                <div class="text-center" style="margin-top: var(--space-md);">
+                    <a href="services.html" class="btn btn-outline">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get your device fixed in 3 simple steps.</p>
+
+                <div class="process-grid">
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <div class="step-card card-hover">
+                            <i class="fas fa-calendar-check text-primary"
+                                style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                            <h3>Book Online</h3>
+                            <p>Fill out our simple booking form or chat with us on WhatsApp to schedule a slot.</p>
+                        </div>
+                    </div>
+                    <div class="process-step animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="step-number">2</div>
+                        <div class="step-card card-hover">
+                            <i class="fas fa-truck-fast text-primary"
+                                style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                            <h3>Drop / Pickup</h3>
+                            <p>Bring your device to our shop or use our convenient pickup and drop-off service.</p>
+                        </div>
+                    </div>
+                    <div class="process-step animate-on-scroll" style="transition-delay: 0.4s;">
+                        <div class="step-number">3</div>
+                        <div class="step-card card-hover">
+                            <i class="fas fa-heart-circle-check text-primary"
+                                style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                            <h3>Relax & Collect</h3>
+                            <p>Most repairs take 30 mins. We'll test everything and return your device as good as new.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter -->
+        <section class="stats-counter gradient-bg" style="color: white; padding: var(--space-lg) 0;">
+            <div class="container counter-grid">
+                <div class="counter-item">
+                    <h3 style="color: white;">50k+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="counter-item">
+                    <h3 style="color: white;">10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="counter-item">
+                    <h3 style="color: white;">100%</h3>
+                    <p>Genuine Parts</p>
+                </div>
+                <div class="counter-item">
+                    <h3 style="color: white;">15</h3>
+                    <p>Expert Technicians</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands We Repair -->
+        <section class="brands-repair" style="background: var(--surface);">
+            <div class="container">
+                <h2 class="section-title">Brands We Repair</h2>
+                <p class="section-subtitle">We use authorized parts for all major manufacturers.</p>
+
+                <div class="brands-row">
+                    <div class="brand-item"><i class="fab fa-apple brand-logo"></i></div>
+                    <div class="brand-item"><i class="fab fa-android brand-logo"></i></div>
+                    <div class="brand-item" style="font-size: 1.5rem; font-weight: 800; color: var(--text-light);">
+                        SAMSUNG</div>
+                    <div class="brand-item" style="font-size: 1.5rem; font-weight: 800; color: var(--text-light);">
+                        GOOGLE</div>
+                    <div class="brand-item" style="font-size: 1.5rem; font-weight: 800; color: var(--text-light);">
+                        ONEPLUS</div>
+                    <div class="brand-item" style="font-size: 1.5rem; font-weight: 800; color: var(--text-light);">
+                        XIAOMI</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-us" style="background: var(--surface);">
+            <div class="container">
+                <div class="why-us-grid">
+                    <div class="why-us-content">
+                        <h2 class="section-title" style="text-align: left;">Why Choose FixIt?</h2>
+                        <p style="margin-bottom: var(--space-md);">We are committed to providing the highest quality
+                            mobile repair services with transparency and speed.</p>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Express Service</h4>
+                                <p>Most repairs are completed within 30-60 minutes while you wait.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4>6-Month Warranty</h4>
+                                <p>All our repairs come with a comprehensive warranty for your peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                            <div>
+                                <h4>Genuine Parts</h4>
+                                <p>We only use high-quality, certified spare parts for all replacements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-us-image card-hover"
+                        style="overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2070"
+                            alt="Professional Repair Workshop" style="width: 100%; height: 400px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-slider" id="testimonial-slider">
+                    <!-- Testimonials will be here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact -->
+        <section class="quick-contact">
+            <div class="container">
+                <div class="contact-banner">
+                    <div>
+                        <h3>Need Immediate Help?</h3>
+                        <p>Chat with us on WhatsApp for a quick quote.</p>
+                    </div>
+                    <div class="banner-actions">
+                        <a href="tel:+1234567890" class="btn btn-outline" style="border-color: white; color: white;"><i
+                                class="fas fa-phone"></i> Call Us</a>
+                        <a href="https://wa.me/1234567890" class="btn btn-primary"
+                            style="background: #25d366; border: none;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-mobile-alt"></i> <span>Fix</span>It
+                    </a>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">Your trusted partner for professional mobile
+                        repair services. Quality parts and expert technicians.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog / Tips</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Screen Replacement</a></li>
+                        <li><a href="#">Battery Replacement</a></li>
+                        <li><a href="#">Water Damage</a></li>
+                        <li><a href="#">Charging Port Fix</a></li>
+                        <li><a href="#">Software Issues</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links" style="color: #94a3b8;">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary);"></i> 123
+                            Tech Street, Digital City</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--primary);"></i> +1 234 567
+                            890</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary);"></i>
+                            support@fixit.com</li>
+                        <li><i class="fas fa-clock" style="margin-right: 10px; color: var(--primary);"></i> Mon - Sat:
+                            9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 FixIt Mobile Repairs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
